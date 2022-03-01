@@ -5,6 +5,7 @@
 	<head>
 		<meta charset="ISO-8859-1">
 		<title>Login</title>
+		<link href="cssScript.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
 		<h1>User Login</h1>
