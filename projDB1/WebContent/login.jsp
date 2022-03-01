@@ -10,9 +10,9 @@
 		<h1>User Login</h1>
 		<form action="result.jsp" method="GET">
         Username: <input type="text" name="username"> <br>
-        Password: <input type="password" name="password" /> <input type="submit"
-            value="Login" />
-            test
+        Password: <input type="password" name="password" /> <input type="submit" value="Login" />
+         <br>
+         <a href="signup.jsp"> No Account? Sign up here </a>
     	</form>
     	
     	
