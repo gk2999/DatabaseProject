@@ -7,6 +7,7 @@
 <title>Sign Up</title>
 </head>
 <body>
+	<h1>Create an Account</h1>
 	email: <input type="text" name="email"><br>
 	password: <input type="text" name="pw"><br> 
 	re-confirm password: <input type="text" name="pw"><br>
