@@ -15,6 +15,7 @@
 	first name: <input type="text" name="fN"><br>
 	last name: <input type="text" name="lN"><br>
 	age: <input type="text" name="age"><br>
+	<a href="login.jsp"> Go Back </a>
 
 </body>
 </html>

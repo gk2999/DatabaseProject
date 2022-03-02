@@ -18,8 +18,12 @@
     	if(pw == ""){
     		out.println("Please enter your password.");
     	}
+    	if(un.equals("root")  && pw.equals("pass1234")){
+    		out.println("Hello <b>"+"Root user"+"</b>!");
+    	}
     	else { 
-			out.println("Hello <b>"+request.getParameter("username")+"</b>!");
+    		
+    		out.println("Hello <b>"+request.getParameter("username")+"</b>!");
 		} 
 		%>
     </ul>
