@@ -9,7 +9,11 @@
 	</head>
 	<body>
 		<h1>Login Result</h1>
+		
+			
+		
     <ul>
+    	
         <% 
     	String un = request.getParameter("username");
         String pw = request.getParameter("password");
@@ -19,7 +23,9 @@
     		out.println("Please enter your password.");
     	}
     	if(un.equals("root")  && pw.equals("pass1234")){
-    		out.println("Hello <b>"+"Root user"+"</b>!");
+    		out.println("Hello <b>"+"Root user"+"</b>!");%>
+    		
+    		<a href = "rootInterface.jsp">Sign On</a><%
     	}
     	else { 
     		
