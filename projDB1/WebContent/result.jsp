@@ -11,7 +11,7 @@
 		<h1>Login Result</h1>
 		
 			
-		
+	
     <ul>
     	
         <% 
@@ -23,9 +23,9 @@
     		out.println("Please enter your password.");
     	}
     	if(un.equals("root")  && pw.equals("pass1234")){
-    		out.println("Hello <b>"+"Root user"+"</b>!");%>
+    		out.println("Hello <b>"+"Root user"+"</b>!");
     		
-    		<a href = "rootInterface.jsp">Sign On</a><%
+    		%><a href = "rootInterface.jsp">Sign On</a><%
     	}
     	else { 
     		
@@ -33,6 +33,7 @@
 		} 
 		%>
     </ul>
+    
 	
 	</body>
 </html>
