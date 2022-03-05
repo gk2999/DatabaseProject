@@ -7,7 +7,8 @@
 <title>Root Interface</title>
 </head>
 <body>
-	<button>Initialize Database</button>
-
+	<form action="initialize" method="get">
+		<input type="submit" value="Initialize Database" />
+	</form>
 </body>
 </html>

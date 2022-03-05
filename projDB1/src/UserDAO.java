@@ -56,7 +56,7 @@ public class UserDAO {
     
     public List<User> listAllUser() throws SQLException {
         List<User> listUser = new ArrayList<User>();        
-        String sql = "SELECT * FROM student";      
+        String sql = "SELECT * FROM User";      
         connect_func();      
         statement =  (Statement) connect.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);

@@ -48,9 +48,13 @@ public class ControlServlet extends HttpServlet {
         try {
             switch (action) {
             
-            case "/insert":
+            case "/insert": //When a new user signs up
                 System.out.println("The action is: insert");
             	   insertUser(request, response);
+                break;
+            case "/initialize": //When a new user signs up
+                System.out.println("The action is: initialize database");
+            	   deleteTable(request, response);
                 break;
             
             default:
@@ -71,7 +75,7 @@ public class ControlServlet extends HttpServlet {
     // after the data of a User are inserted, this method will be called to insert the new User into the DB
     // 
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
-            throws SQLException, IOException, ServletException {
+    		throws SQLException, IOException, ServletException {
         System.out.println("insertUser started: 000000000000000000000000000");
      
         String id = request.getParameter("email");
@@ -91,6 +95,10 @@ public class ControlServlet extends HttpServlet {
         dispatcher.forward(request, response);
      
         System.out.println("insertUser finished: 11111111111111111111111111");   
+    }
+    
+    private void deleteTable(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
+    	String sql1 = "DROP TABLE IF EXISTS User";
     }
  
     

@@ -28,16 +28,27 @@ public class test3  {
  public static void main(String[] args) {
 
 	 //1 Create Table
+	 
 	 String sql1 = "DROP TABLE IF EXISTS User";
     String sql2 = "CREATE TABLE IF NOT EXISTS User " +
                    
-    			   " Email VARCHAR(30), " +
+    			   " (Email VARCHAR(30), " +
     			   " Password VARCHAR(40),"+
                    " firstName VARCHAR(20), " + 
                    " lastName VARCHAR(30), " +
                    " Age INTEGER,"+
                    " PRIMARY KEY ( Email ))"; 
     
+    /*
+	 String sql1 = "DROP TABLE IF EXISTS Student";
+	    String sql2 = "CREATE TABLE IF NOT EXISTS Student " +
+	                   "(id INTEGER not NULL AUTO_INCREMENT, " +
+	                   " Name VARCHAR(20), " + 
+	                   " Address VARCHAR(50), " + 
+	                   " Status VARCHAR(10), " + 
+	                   " PRIMARY KEY ( id ))"; 
+	 
+	 */
 
     try {
       System.out.println("Select a table and then print out its content.");
@@ -45,7 +56,7 @@ public class test3  {
       // Class.forName("com.mysql.jdbc.Driver");
       // Setup the connection with the DB
       connect = DriverManager
-          .getConnection("jdbc:mysql://localhost:3306/testdb2?"
+          .getConnection("jdbc:mysql://localhost:3306/testdb?"
               + "useSSL=false&user=john&password=pass1234");
 
       // Statements allow to issue SQL queries to the database
@@ -59,13 +70,13 @@ public class test3  {
       
       //Modified Database(Exercise 3)
       //4 inserts
-      String insertQuery1 = "insert into User(Name, Address, Status) values (\"Jeff Smalls\", \"765 Runny Road, Detroit, MI 48208\", \"Sophmore\")";
+      String insertQuery1 = "insert into User(Email, Password, firstName, lastName, Age) values (\"Jeff Smalls\", \"765 Runny Road, Detroit, MI 48208\", \"Sophmore\")";
       statement.executeUpdate(insertQuery1);
-      String insertQuery2 = "insert into User(Name, Address, Status) values (\"Biggie Smalls\", \"4782 River Road, Detroit, MI 48208\", \"Senior\")";
+      String insertQuery2 = "insert into User(Email, Password, firstName, lastName, Age) values (\"Biggie Smalls\", \"4782 River Road, Detroit, MI 48208\", \"Senior\")";
       statement.executeUpdate(insertQuery2);
-      String insertQuery3 = "insert into User(Name, Address, Status) values (\"Ed Thomson\", \"82 West Hill Drive, Ann Arbor, MI 48421\", \"Freshman\")";
+      String insertQuery3 = "insert into User(Email, Password, firstName, lastName, Age) values (\"Ed Thomson\", \"82 West Hill Drive, Ann Arbor, MI 48421\", \"Freshman\")";
       statement.executeUpdate(insertQuery3);
-      String insertQuery4 = "insert into User(Name, Address, Status) values (\"Gary Smary\", \"8915 Rocky Hill Street, Grand Rapids, MI 48266\", \"Junior\")";
+      String insertQuery4 = "insert into User(Email, Password, firstName, lastName, Age) values (\"Gary Smary\", \"8915 Rocky Hill Street, Grand Rapids, MI 48266\", \"Junior\")";
       statement.executeUpdate(insertQuery4);
       
       resultSet = statement.executeQuery("select * from User");

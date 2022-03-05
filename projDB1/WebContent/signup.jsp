@@ -12,8 +12,8 @@
 
 	<h1>Create an Account</h1>
 	email: <input type="text" name="username"><br>
-	password: <input type="text" name="password"><br> 
-	re-confirm password: <input type="text" name="password"><br>
+	password: <input type="text" name="pw"><br> 
+	re-confirm password: <input type="text" name="pw"><br>
 	first name: <input type="text" name="fN"><br>
 	last name: <input type="text" name="lN"><br>
 	age: <input type="text" name="age"><br>
