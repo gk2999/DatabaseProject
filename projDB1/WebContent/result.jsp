@@ -14,23 +14,28 @@
 	
     <ul>
     	
-        <% 
-    	String un = request.getParameter("username");
+        <%
+        String un = request.getParameter("email");
         String pw = request.getParameter("password");
-    	if (un == "") { 
-			out.println("Please enter your name."); }
-    	if(pw == ""){
-    		out.println("Please enter your password.");
-    	}
-    	if(un.equals("root")  && pw.equals("pass1234")){
+        
+        if(un.equals("root")  && pw.equals("pass1234")){
     		out.println("Hello <b>"+"Root user"+"</b>!");
     		
     		%><a href = "rootInterface.jsp">Sign On</a><%
     	}
-    	else { 
-    		
-    		out.println("Hello <b>"+request.getParameter("username")+"</b>!");
-		} 
+        else{
+        	if (un == "") { 
+    			out.println("Please enter your name."); }
+        	if(pw == ""){
+        		out.println("Please enter your password.");
+        	}
+        	else { 
+        		
+        		out.println("Hello <b>"+un+"</b>!");
+        		%><a href = "userInterface.jsp">Sign On</a><%
+    		}
+        }
+ 
 		%>
     </ul>
     

@@ -52,7 +52,7 @@ public class ControlServlet extends HttpServlet {
                 System.out.println("The action is: insert");
             	   insertUser(request, response);
                 break;
-            case "/initialize": //When a new user signs up
+            case "/initialize": //When root clicks button
                 System.out.println("The action is: initialize database");
             	   deleteTable(request, response);
                 break;

@@ -11,7 +11,7 @@
 <form action="insert" method="get">
 
 	<h1>Create an Account</h1>
-	Email: <input type="text" placeholder="Enter Email Address" name="username"><br>
+	Email: <input type="text" placeholder="Enter Email Address" name="email"><br>
 	Password: <input type="text" placeholder="Enter Password" name="pw"><br> 
 	Re-Confirm Password: <input type="text" placeholder="Confirm Password" name="pw"><br>
 	First Name: <input type="text" placeholder="Enter First Name" name="fN"><br>
