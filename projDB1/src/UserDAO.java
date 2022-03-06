@@ -125,6 +125,7 @@ public class UserDAO {
             String lN = resultSet.getString("lastName");
              
             User = new User(email, password, fN, lN, age);
+            //test
         }
          
         resultSet.close();
