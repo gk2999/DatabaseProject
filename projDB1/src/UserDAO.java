@@ -5,6 +5,7 @@ import java.io.PrintWriter;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -36,7 +37,7 @@ public class UserDAO {
 	public UserDAO() {
 
     }
-	       
+	  
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -52,6 +53,41 @@ public class UserDAO {
   			          + "useSSL=false&user=john&password=pass1234");
             System.out.println(connect);
         }
+    }
+    
+    
+    public void deleteTable() throws SQLException, IOException, ServletException {
+    	
+    	connect_func();
+    	try {
+    		String sql1 = "DROP TABLE IF EXISTS User";
+    		String sql2 = "DROP TABLE IF EXISTS Transfer";
+    		String sql3 = "DROP TABLE IF EXISTS Tip";
+    		String sql4 = "DROP TABLE IF EXISTS Root";
+    		String sql5 = "DROP TABLE IF EXISTS Follows";
+    		String sql6 = "DROP TABLE IF EXISTS Post";
+    		String sql7 = "DROP TABLE IF EXISTS Message";
+    		String sql8 = "DROP TABLE IF EXISTS Liked";
+    		String sql9 = "DROP TABLE IF EXISTS Comment";
+
+    		// Statements allow to issue SQL queries to the database
+    		statement = connect.createStatement();
+
+    		statement.executeUpdate(sql1);
+    		statement.executeUpdate(sql2);
+    		statement.executeUpdate(sql3);
+    		statement.executeUpdate(sql4);
+    		statement.executeUpdate(sql5);
+    		statement.executeUpdate(sql6);
+    		statement.executeUpdate(sql7);
+    		statement.executeUpdate(sql8);
+    		statement.executeUpdate(sql9);
+    		
+    	}
+    	catch (Exception e) {
+            System.out.println(e);
+       }
+    	
     }
     
     public List<User> listAllUser() throws SQLException {
@@ -83,7 +119,7 @@ public class UserDAO {
         	connect.close();
         }
     }
-    public void checkDuplicate(User User) throws SQLException {
+    public boolean checkDuplicate(User User) throws SQLException {
     	
     	//List<User> listUser = new ArrayList<User>();        
         String sql = "SELECT * FROM User";      
@@ -95,22 +131,23 @@ public class UserDAO {
         while (resultSet.next()) {
         	String email = resultSet.getString("email");
         	if((User.email).equals(email)) {
-        		throw new SQLException("Someone already has that username");
+        		return true;
         		
         	}
         }
         resultSet.close();
         statement.close();         
-        
+        return false;
         
     	
     }
          
-    public boolean insert(User User) throws SQLException {
+    public int insert(User User) throws SQLException {
     	connect_func(); 
     	
     	System.out.println("************testZ****************");
-    	checkDuplicate(User);
+    	if(checkDuplicate(User))
+    		return -1;
     	
     	
 		String sql = "insert into  User(email, password, firstName, lastName, age) values (?, ?, ?, ?, ?)";
@@ -122,10 +159,10 @@ public class UserDAO {
 		preparedStatement.setInt(5, User.age);
 //		preparedStatement.executeUpdate();
 		
-        boolean rowInserted = preparedStatement.executeUpdate() > 0;
+        //boolean rowInserted = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
 //        disconnect();
-        return rowInserted;
+        return 1;
     }     
      
    

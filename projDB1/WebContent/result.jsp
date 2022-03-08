@@ -9,14 +9,13 @@
 	</head>
 	<body>
 		<h1>Login Result</h1>
-		
-			
-	
+
     <ul>
     	
         <%
         String un = request.getParameter("email");
-        String pw = request.getParameter("password");
+        String pw = request.getParameter("pw");
+        String pwR = request.getParameter("pwR");
         
         if(un.equals("root")  && pw.equals("pass1234")){
     		out.println("Hello <b>"+"Root user"+"</b>!");
@@ -28,6 +27,9 @@
     			out.println("Please enter your name."); }
         	if(pw == ""){
         		out.println("Please enter your password.");
+        	}
+        	if(!pw.equals(pwR)){
+        		out.println("Passwords dont match");
         	}
         	else { 
         		

@@ -68,10 +68,7 @@ public class ControlServlet extends HttpServlet {
         System.out.println("doGet finished: 111111111111111111111111111111111111");
     }
     
-    
- 
-   
- 
+
     // after the data of a User are inserted, this method will be called to insert the new User into the DB
     // 
     private void insertUser(HttpServletRequest request, HttpServletResponse response)
@@ -87,18 +84,28 @@ public class ControlServlet extends HttpServlet {
         int b = Integer.parseInt(age);
      
         User newUser = new User(id, pw, firstN, lastN, b);
-        UserDAO.insert(newUser);
-     
+        int dup = UserDAO.insert(newUser);
+        
         System.out.println("Ask the browser to call the list action next automatically");
         
-        RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");       
-        dispatcher.forward(request, response);
+        if(dup == -1) {
+        	request.setAttribute("Duplicate", "Sorry, username already taken");
+            request.getRequestDispatcher("signup.jsp").forward(request, response);
+        }
+        else {
+        	RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");       
+            dispatcher.forward(request, response);
+        }
+         
+        
+        
      
         System.out.println("insertUser finished: 11111111111111111111111111");   
     }
     
     private void deleteTable(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
-    	String sql1 = "DROP TABLE IF EXISTS User";
+    	UserDAO.deleteTable();
+
     }
  
     
