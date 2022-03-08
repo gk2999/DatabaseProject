@@ -83,11 +83,35 @@ public class UserDAO {
         	connect.close();
         }
     }
+    public void checkDuplicate(User User) throws SQLException {
+    	
+    	//List<User> listUser = new ArrayList<User>();        
+        String sql = "SELECT * FROM User";      
+        connect_func();      
+        statement =  (Statement) connect.createStatement();
+        ResultSet resultSet = statement.executeQuery(sql);
+        
+        System.out.println(User.email);
+        while (resultSet.next()) {
+        	String email = resultSet.getString("email");
+        	if((User.email).equals(email)) {
+        		throw new SQLException("Someone already has that username");
+        		
+        	}
+        }
+        resultSet.close();
+        statement.close();         
+        
+        
+    	
+    }
          
     public boolean insert(User User) throws SQLException {
     	connect_func(); 
     	
     	System.out.println("************testZ****************");
+    	checkDuplicate(User);
+    	
     	
 		String sql = "insert into  User(email, password, firstName, lastName, age) values (?, ?, ?, ?, ?)";
 		preparedStatement = (PreparedStatement) connect.prepareStatement(sql);

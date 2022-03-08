@@ -10,7 +10,7 @@
 	<body>
 		<h1>User Login</h1>
 		<form action="result.jsp" method="GET">
-        Username: <input type="text" placeholder="Enter Username" name="username"> <br>
+        Username: <input type="text" placeholder="Enter Username" name="email"> <br>
         Password: <input type="password" placeholder="Enter Password" name="password" /> 
         	<button type="submit">Login</button>
          <br>
