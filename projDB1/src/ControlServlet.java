@@ -54,7 +54,8 @@ public class ControlServlet extends HttpServlet {
                 break;
             case "/initialize": //When root clicks button
                 System.out.println("The action is: initialize database");
-            	   deleteTable(request, response);
+            	   deleteTables(request, response);
+            	   insertTables(request, response);
                 break;
             
             default:
@@ -103,8 +104,19 @@ public class ControlServlet extends HttpServlet {
         System.out.println("insertUser finished: 11111111111111111111111111");   
     }
     
-    private void deleteTable(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
-    	UserDAO.deleteTable();
+    private void deleteTables(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
+    	
+    	UserDAO.deleteTables();
+    	System.out.println("All tables deleted");
+    	
+
+    }
+    private void insertTables(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
+    	
+    	UserDAO.insertTables();
+    	System.out.println("All tables inserted");
+    	request.setAttribute("ins", "All tables have been reset in the database");
+        request.getRequestDispatcher("rootInterface.jsp").forward(request, response);
 
     }
  

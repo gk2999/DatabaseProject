@@ -56,19 +56,106 @@ public class UserDAO {
     }
     
     
-    public void deleteTable() throws SQLException, IOException, ServletException {
+    public void deleteTables() throws SQLException, IOException, ServletException {
     	
     	connect_func();
     	try {
     		String sql1 = "DROP TABLE IF EXISTS User";
     		String sql2 = "DROP TABLE IF EXISTS Transfer";
     		String sql3 = "DROP TABLE IF EXISTS Tip";
-    		String sql4 = "DROP TABLE IF EXISTS Root";
-    		String sql5 = "DROP TABLE IF EXISTS Follows";
-    		String sql6 = "DROP TABLE IF EXISTS Post";
-    		String sql7 = "DROP TABLE IF EXISTS Message";
-    		String sql8 = "DROP TABLE IF EXISTS Liked";
-    		String sql9 = "DROP TABLE IF EXISTS Comment";
+    		
+    		String sql4 = "DROP TABLE IF EXISTS Follows";
+    		String sql5 = "DROP TABLE IF EXISTS Post";
+    		
+    		String sql6 = "DROP TABLE IF EXISTS Liked";
+    		String sql7 = "DROP TABLE IF EXISTS Comment";
+
+    		// Statements allow to issue SQL queries to the database
+    		statement = connect.createStatement();
+
+    		
+    		statement.executeUpdate(sql2);
+    		statement.executeUpdate(sql3);
+    		statement.executeUpdate(sql4);
+    		
+    		statement.executeUpdate(sql6);
+    		statement.executeUpdate(sql7);
+    		
+    		statement.executeUpdate(sql5);
+    		
+    		
+    		
+    		statement.executeUpdate(sql1);
+    		
+    		
+    	}
+    	catch (Exception e) {
+            System.out.println(e);
+       }
+    	
+    }
+    
+public void insertTables() throws SQLException, IOException, ServletException {
+    	
+    	connect_func();
+    	try {
+String sql1 = "CREATE TABLE User " +
+                    
+    			   " (Email VARCHAR(30), " +
+    			   " Password VARCHAR(40),"+
+                   " firstName VARCHAR(20), " + 
+                   " lastName VARCHAR(30), " +
+                   " Age INTEGER,"+
+                   " PRIMARY KEY ( Email ))";
+String sql2 = "CREATE TABLE Transfer " +
+                    
+    			   " (Email VARCHAR(30), " +
+    			   " timeOfTrans DATETIME,"+
+                   " buyORSell CHAR(1), " + 
+                   " PPSPrice DOUBLE, " +
+                   " amount DOUBLE,"+
+                   " transferID VARCHAR(20),"+
+                   " PRIMARY KEY ( transferID ),"+
+                   " FOREIGN KEY ( email ) REFERENCES User(Email))";
+
+String sql3 = "CREATE TABLE Tip " +
+        
+    			   " (Email VARCHAR(30), " +
+    			   " timeOfTrans DATETIME,"+
+                   " amount DOUBLE,"+
+                   " tipID VARCHAR(20),"+
+                   " PRIMARY KEY ( tipID ),"+
+                   " FOREIGN KEY ( email ) REFERENCES User(Email))";
+
+String sql4 = "CREATE TABLE Follows " +
+        
+    			   " (Email VARCHAR(30), " +
+                   " PRIMARY KEY ( Email ),"+
+                   " FOREIGN KEY ( email ) REFERENCES User(Email))";
+String sql5 = "CREATE TABLE Post " +
+        
+    			   " (Email VARCHAR(30), " +
+    			   " type CHAR(1),"+
+                   " numOfLikes INT, " + 
+                   " content VARCHAR(350), " +
+                   " postID VARCHAR(20),"+
+                   " PRIMARY KEY ( postID ),"+
+                   " FOREIGN KEY ( email ) REFERENCES User(Email))";
+
+String sql6 = "CREATE TABLE Liked " +
+        
+    			   " (Email VARCHAR(30), " +
+    			   " postID VARCHAR(20),"+
+                   " FOREIGN KEY ( email ) REFERENCES User(Email),"+
+                   " FOREIGN KEY ( postID ) REFERENCES Post(postID))";
+String sql7 = "CREATE TABLE Comment " +
+        
+    			   " (Email VARCHAR(30), " +
+    			   " postID VARCHAR(20),"+
+                   " content VARCHAR(350), " + 
+                   " FOREIGN KEY ( email ) REFERENCES User(Email),"+
+                   " FOREIGN KEY ( postID ) REFERENCES Post(postID))";
+  			
 
     		// Statements allow to issue SQL queries to the database
     		statement = connect.createStatement();
@@ -80,8 +167,7 @@ public class UserDAO {
     		statement.executeUpdate(sql5);
     		statement.executeUpdate(sql6);
     		statement.executeUpdate(sql7);
-    		statement.executeUpdate(sql8);
-    		statement.executeUpdate(sql9);
+    		
     		
     	}
     	catch (Exception e) {
@@ -89,6 +175,7 @@ public class UserDAO {
        }
     	
     }
+    
     
     public List<User> listAllUser() throws SQLException {
         List<User> listUser = new ArrayList<User>();        
@@ -159,7 +246,7 @@ public class UserDAO {
 		preparedStatement.setInt(5, User.age);
 //		preparedStatement.executeUpdate();
 		
-        //boolean rowInserted = preparedStatement.executeUpdate() > 0;
+        boolean rowInserted = preparedStatement.executeUpdate() > 0;
         preparedStatement.close();
 //        disconnect();
         return 1;

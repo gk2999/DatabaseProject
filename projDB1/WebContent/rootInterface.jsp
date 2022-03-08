@@ -9,7 +9,9 @@
 </head>
 <body>
 	<form action="initialize" method="get">
-		<button type="submit" value="Initialize Database">Initialize Database</button>
+		<button type="submit" value="Initialize Database">Initialize Database</button><br>
+		
+		<h3 style = "color: green"> ${ins}</h3>
 	</form>
 </body>
 </html>
