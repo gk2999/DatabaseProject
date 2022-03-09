@@ -8,16 +8,23 @@ public class User {
     protected String fName;
     protected String lName;
     protected int age;
+    protected double usd;
+    protected double pps;
  
     public User() {
     }
  
-    public User(String email) {
+    public User(String email, String password, double usd, double pps) {
         this.email = email;
+        this.password = password;
+        this.usd = usd;
+        this.pps = pps;
     }
  
-    public User(String email, String password, String fName, String lName, int age) {
+    public User(String email, String password, String fName, String lName, int age, double usd, double pps) {
         this.email = email; this.password = password; this.fName = fName; this.lName = lName; this.age = age;
+        this.usd = 1000;
+        this.pps = 0;
     }
    
     public String getEmail() {
@@ -57,5 +64,19 @@ public class User {
     public void setAge(int age) {
         this.age = age;
     }
+    public double getUSD() {
+        return usd;
+    }
+    public void setUSD(double usd) {
+        this.usd = usd;
+    }
+    public double getPPS() {
+        return pps;
+    }
+    public void setPPS(double pps) {
+        this.pps = pps;
+    }
+    
+    
     
 }

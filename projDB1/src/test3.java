@@ -197,4 +197,7 @@ public class test3  {
 
     }
   }
+  public static void p() {
+	  System.out.println("TEST");
+  }
 } 

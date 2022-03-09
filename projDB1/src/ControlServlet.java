@@ -23,13 +23,15 @@ import java.sql.PreparedStatement;
  * This servlet acts as a page controller for the application, handling all
  * requests from the user.
  * @author www.codejava.net
+ * 
  */
 public class ControlServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private UserDAO UserDAO;
  
     public void init() {
-        UserDAO = new UserDAO(); 
+        UserDAO = new UserDAO();
+        System.out.println("Server started");
     }
  
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -46,8 +48,15 @@ public class ControlServlet extends HttpServlet {
         String action = request.getServletPath();
         System.out.println(action);
         try {
+        	
+        	
+        	
             switch (action) {
-            
+            case "/insertRoot":
+            	System.out.println("The action is: insert Root");
+            	//initalize a root user everytime sign in
+            	User root = new User("root", "pass1234", 1000, 1000000000);
+            	UserDAO.insert(root);
             case "/insert": //When a new user signs up
                 System.out.println("The action is: insert");
             	   insertUser(request, response);
@@ -56,6 +65,7 @@ public class ControlServlet extends HttpServlet {
                 System.out.println("The action is: initialize database");
             	   deleteTables(request, response);
             	   insertTables(request, response);
+            	   insertTuples(request, response);
                 break;
             
             default:
@@ -84,8 +94,9 @@ public class ControlServlet extends HttpServlet {
         
         int b = Integer.parseInt(age);
      
-        User newUser = new User(id, pw, firstN, lastN, b);
-        int dup = UserDAO.insert(newUser);
+        User newUser = new User(id, pw, firstN, lastN, b, 0, 0);
+        
+        int dup = UserDAO.insert(newUser); //this method will return -1 if a duplicate username is detected
         
         System.out.println("Ask the browser to call the list action next automatically");
         
@@ -115,7 +126,14 @@ public class ControlServlet extends HttpServlet {
     	
     	UserDAO.insertTables();
     	System.out.println("All tables inserted");
-    	request.setAttribute("ins", "All tables have been reset in the database");
+    	
+
+    }
+    private void insertTuples(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
+    	
+    	UserDAO.insertTuples();
+    	System.out.println("All tuples inserted");
+    	request.setAttribute("ins", "All tables have been reset, with new tuples added");
         request.getRequestDispatcher("rootInterface.jsp").forward(request, response);
 
     }

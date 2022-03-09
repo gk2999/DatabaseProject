@@ -8,9 +8,10 @@
 		<title>Using GET and POST Method to Read Form Data</title>
 	</head>
 	<body>
+	
 		<h1>Login Result</h1>
 
-    <ul>
+    
     	
         <%
         String un = request.getParameter("email");
@@ -20,7 +21,11 @@
         if(un.equals("root")  && pw.equals("pass1234")){
     		out.println("Hello <b>"+"Root user"+"</b>!");
     		
-    		%><a href = "rootInterface.jsp">Sign On</a><%
+    		
+    		%>
+    		
+    			<a href = "rootInterface.jsp">Sign On</a>
+    		<% 
     	}
         else{
         	if (un == "") { 
@@ -39,7 +44,7 @@
         }
  
 		%>
-    </ul>
+    
     
 	
 	</body>
