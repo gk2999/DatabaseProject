@@ -279,16 +279,16 @@ public void insertTuples() throws SQLException, IOException, ServletException {
 			      
 			      String postInsert = "insert into Post(Email, type, numOfLikes, content, postID) values ";
 				    
-				    String p1 = postInsert +"(\"pf@gmail.com\",\"text\", \"23\", \"Checkout this picture\",\"59150e43468fea17\")";
-					String p2 = postInsert +"(\"ab34@gmail.com\",\"video\", \"12\",\"This video!\",\"d3ff8769940ec23f\")";
-					String p3 = postInsert +"(\"yu33@outlook.com\",\"image\", \"50\",\"Look at this haha!\",\"21a31d3c7eb7905c\")";
-					String p4 = postInsert +"(\"jen_t@gmail.com\",\"text\", \"30\", \"I hope this post get 31 likes\",\"9782f31965d483a4\")";
-					String p5 = postInsert +"(\"hy88@yahoo.com\",\"Alert\", \"1\", \"My most liked post! :D\",\"c967a86fcf151528\")";
-					String p6 = postInsert +"(\"emp555@wayne.edu\",\"Announcement\", \"43\", \"Important Announcement\",\"b4a0b4cf6cbc1a40\")";
-					String p7 = postInsert +"(\"gary88@gmail.com\",\"Help!\", \"21\", \"Can I get some help with my database?\",\"7f3a73773836c2c2\")";
-					String p8 = postInsert +"(\"johndata@outlook.com\",\"video\", \"42\", \"John Data reporting\",\"ed34a8084b039c9d\")";
-					String p9 = postInsert +"(\"sql123@gmail.com\",\"image\", \"32\", \"Sup\",\"d5cba5706d657ew4\")";
-					String p10 = postInsert +"(\"klkg6543@wayne.edu\",\"image\", \"65\", \"See ya later!!!\",\"9ad71db2e2zcd5f7\")";
+				    String p1 = postInsert +"(\"pf@gmail.com\",\"t\", \"23\", \"Checkout this picture\",\"59150e43468fea17\")";
+					String p2 = postInsert +"(\"ab34@gmail.com\",\"v\", \"12\",\"This video!\",\"d3ff8769940ec23f\")";
+					String p3 = postInsert +"(\"yu33@outlook.com\",\"i\", \"50\",\"Look at this haha!\",\"21a31d3c7eb7905c\")";
+					String p4 = postInsert +"(\"jen_t@gmail.com\",\"t\", \"30\", \"I hope this post get 31 likes\",\"9782f31965d483a4\")";
+					String p5 = postInsert +"(\"hy88@yahoo.com\",\"a\", \"1\", \"My most liked post! :D\",\"c967a86fcf151528\")";
+					String p6 = postInsert +"(\"emp555@wayne.edu\",\"a\", \"43\", \"Important Announcement\",\"b4a0b4cf6cbc1a40\")";
+					String p7 = postInsert +"(\"gary88@gmail.com\",\"h!\", \"21\", \"Can I get some help with my database?\",\"7f3a73773836c2c2\")";
+					String p8 = postInsert +"(\"johndata@outlook.com\",\"v\", \"42\", \"John Data reporting\",\"ed34a8084b039c9d\")";
+					String p9 = postInsert +"(\"sql123@gmail.com\",\"i\", \"32\", \"Sup\",\"d5cba5706d657ew4\")";
+					String p10 = postInsert +"(\"klkg6543@wayne.edu\",\"i\", \"65\", \"See ya later!!!\",\"9ad71db2e2zcd5f7\")";
 					  statement.executeUpdate(p1);
 				      statement.executeUpdate(p2);
 				      statement.executeUpdate(p3);
