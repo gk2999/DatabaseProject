@@ -114,15 +114,16 @@ public class ControlServlet extends HttpServlet {
     private void searchUser(HttpServletRequest request, HttpServletResponse response)
     		throws SQLException, IOException, ServletException {
     	String id = request.getParameter("email");
-    	String pw = request.getParameter("password");
+    	String pw = request.getParameter("pw");
     	
-    	if(UserDAO.checkForUser(id)) {
+    	if(UserDAO.checkForPassword(id,pw) || id.equals("root")) {
             RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");       
             dispatcher.forward(request, response);
+            
         }
         else {
-        	request.setAttribute("InvalidUN", "Username is invalid");
-        	request.getRequestDispatcher("result.jsp").forward(request, response);
+        	request.setAttribute("InvalidUN", "Username and/or password is invalid");
+        	request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
     

@@ -24,6 +24,7 @@
 	Email: <input type="text" placeholder="Enter Email Address" name="email">
 	Password: <input type="password" placeholder="Enter Password" name="pw"><br> 
 	Re-Confirm Password: <input type="password" placeholder="Confirm Password" name="pwR"><br>
+	 
 	First Name: <input type="text" placeholder="Enter First Name" name="fN"><br>
 	Last Name: <input type="text" placeholder="Enter Last Name" name="lN"><br>
 	Age: <input type="text" placeholder="Enter Age" name="age"><br>

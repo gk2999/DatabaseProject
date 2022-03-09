@@ -32,9 +32,7 @@
         	if(pw == ""){
         		out.println("Please enter your password.");
         	}
-        	if(!pw.equals(pwR)){
-        		out.println("Passwords dont match");
-        	}
+        	
         	else { 
         		
         		out.println("Hello <b>"+un+"</b>!");

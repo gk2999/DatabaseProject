@@ -407,28 +407,30 @@ public void insertTuples() throws SQLException, IOException, ServletException {
         
     	
     }
-public boolean checkForUser(String userEmail) throws SQLException {
-    	
-    	//List<User> listUser = new ArrayList<User>();        
-        String sql = "SELECT * FROM User";      
-        connect_func();      
-        statement =  (Statement) connect.createStatement();
-        ResultSet resultSet = statement.executeQuery(sql);
-        
-        
-        while (resultSet.next()) {
-        	String email = resultSet.getString("email");
-        	if((userEmail).equals(email)) {
-        		return true;
-        		
-        	}
-        }
-        resultSet.close();
-        statement.close();         
-        return false;
-        
-    	
+
+public boolean checkForPassword(String userEmail, String userPassword) throws SQLException {
+	
+	//List<User> listUser = new ArrayList<User>();        
+    String sql = "SELECT * FROM User";      
+    connect_func();      
+    statement =  (Statement) connect.createStatement();
+    ResultSet resultSet = statement.executeQuery(sql);
+    
+    
+    while (resultSet.next()) {
+    	String email = resultSet.getString("email");
+    	String password = resultSet.getString("password");
+    	if((userEmail).equals(email) && (userPassword).equals(password)) {
+    		return true;
+    		
+    	}
     }
+    resultSet.close();
+    statement.close();         
+    return false;
+    
+	
+}
          
     public int insert(User User) throws SQLException {
     	connect_func(); 
