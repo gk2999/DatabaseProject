@@ -253,6 +253,103 @@ public void insertTuples() throws SQLException, IOException, ServletException {
 		      statement.executeUpdate(tp8);
 		      statement.executeUpdate(tp9);
 		      statement.executeUpdate(tp10);
+		    
+		      String followsInsert = "insert into Follows(Email) values ";
+			    
+			    String f1 = followsInsert +"(\"pf@gmail.com\")";
+				String f2 = followsInsert +"(\"ab34@gmail.com\")";
+				String f3 = followsInsert +"(\"yu33@outlook.com\")";
+				String f4 = followsInsert +"(\"jen_t@gmail.com\")";
+				String f5 = followsInsert +"(\"hy88@yahoo.com\")";
+				String f6 = followsInsert +"(\"emp555@wayne.edu\")";
+				String f7 = followsInsert +"(\"gary88@gmail.com\")";
+				String f8 = followsInsert +"(\"johndata@outlook.com\")";
+				String f9 = followsInsert +"(\"sql123@gmail.com\")";
+				String f10 = followsInsert +"(\"klkg6543@wayne.edu\")";
+				  statement.executeUpdate(f1);
+			      statement.executeUpdate(f2);
+			      statement.executeUpdate(f3);
+			      statement.executeUpdate(f4);
+			      statement.executeUpdate(f5);
+			      statement.executeUpdate(f6);
+			      statement.executeUpdate(f7);
+			      statement.executeUpdate(f8);
+			      statement.executeUpdate(f9);
+			      statement.executeUpdate(f10);
+			      
+			      String postInsert = "insert into Post(Email, type, numOfLikes, content, postID) values ";
+				    
+				    String p1 = postInsert +"(\"pf@gmail.com\",\"text\", \"23\", \"Checkout this picture\",\"59150e43468fea17\")";
+					String p2 = postInsert +"(\"ab34@gmail.com\",\"video\", \"12\",\"This video!\",\"d3ff8769940ec23f\")";
+					String p3 = postInsert +"(\"yu33@outlook.com\",\"image\", \"50\",\"Look at this haha!\",\"21a31d3c7eb7905c\")";
+					String p4 = postInsert +"(\"jen_t@gmail.com\",\"text\", \"30\", \"I hope this post get 31 likes\",\"9782f31965d483a4\")";
+					String p5 = postInsert +"(\"hy88@yahoo.com\",\"Alert\", \"1\", \"My most liked post! :D\",\"c967a86fcf151528\")";
+					String p6 = postInsert +"(\"emp555@wayne.edu\",\"Announcement\", \"43\", \"Important Announcement\",\"b4a0b4cf6cbc1a40\")";
+					String p7 = postInsert +"(\"gary88@gmail.com\",\"Help!\", \"21\", \"Can I get some help with my database?\",\"7f3a73773836c2c2\")";
+					String p8 = postInsert +"(\"johndata@outlook.com\",\"video\", \"42\", \"John Data reporting\",\"ed34a8084b039c9d\")";
+					String p9 = postInsert +"(\"sql123@gmail.com\",\"image\", \"32\", \"Sup\",\"d5cba5706d657ew4\")";
+					String p10 = postInsert +"(\"klkg6543@wayne.edu\",\"image\", \"65\", \"See ya later!!!\",\"9ad71db2e2zcd5f7\")";
+					  statement.executeUpdate(p1);
+				      statement.executeUpdate(p2);
+				      statement.executeUpdate(p3);
+				      statement.executeUpdate(p4);
+				      statement.executeUpdate(p5);
+				      statement.executeUpdate(p6);
+				      statement.executeUpdate(p7);
+				      statement.executeUpdate(p8);
+				      statement.executeUpdate(p9);
+				      statement.executeUpdate(p10);
+
+				      String likedInsert = "insert into Liked(Email, postID) values ";
+					    
+					    String l1 = likedInsert +"(\"pf@gmail.com\", \"59150e43468fea17\")";
+						String l2 = likedInsert +"(\"ab34@gmail.com\", \"d3ff8769940ec23f\")";
+						String l3 = likedInsert +"(\"yu33@outlook.com\", \"21a31d3c7eb7905c\")";
+						String l4 = likedInsert +"(\"jen_t@gmail.com\", \"9782f31965d483a4\")";
+						String l5 = likedInsert +"(\"hy88@yahoo.com\", \"c967a86fcf151528\")";
+						String l6 = likedInsert +"(\"emp555@wayne.edu\", \"b4a0b4cf6cbc1a40\")";
+						String l7 = likedInsert +"(\"gary88@gmail.com\", \"7f3a73773836c2c2\")";
+						String l8 = likedInsert +"(\"johndata@outlook.com\", \"ed34a8084b039c9d\")";
+						String l9 = likedInsert +"(\"sql123@gmail.com\",\"d5cba5706d657ew4\")";
+						String l10 = likedInsert +"(\"klkg6543@wayne.edu\",\"9ad71db2e2zcd5f7\")";
+						  statement.executeUpdate(l1);
+					      statement.executeUpdate(l2);
+					      statement.executeUpdate(l3);
+					      statement.executeUpdate(l4);
+					      statement.executeUpdate(l5);
+					      statement.executeUpdate(l6);
+					      statement.executeUpdate(l7);
+					      statement.executeUpdate(l8);
+					      statement.executeUpdate(l9);
+					      statement.executeUpdate(l10);
+					      
+					      String commentInsert = "insert into Comment(Email, content, postID) values ";
+						    
+						    String c1 = commentInsert +"(\"pf@gmail.com\",\"Hey gang!\", \"59150e43468fea17\")";
+							String c2 = commentInsert +"(\"ab34@gmail.com\",\"I love Wanye State!\", \"d3ff8769940ec23f\")";
+							String c3 = commentInsert +"(\"yu33@outlook.com\",\"My database is broken :(\", \"21a31d3c7eb7905c\")";
+							String c4 = commentInsert +"(\"jen_t@gmail.com\",\"I might be late to class today\", \"9782f31965d483a4\")";
+							String c5 = commentInsert +"(\"hy88@yahoo.com\",\"Hello World!\", \"c967a86fcf151528\")";
+							String c6 = commentInsert +"(\"emp555@wayne.edu\",\"Yes!\", \"b4a0b4cf6cbc1a40\")";
+							String c7 = commentInsert +"(\"gary88@gmail.com\",\"Anyone looking to trade\", \"7f3a73773836c2c2\")";
+							String c8 = commentInsert +"(\"johndata@outlook.com\",\"Database4lyfe\", \"ed34a8084b039c9d\")";
+							String c9 = commentInsert +"(\"sql123@gmail.com\",\"Have a great day!\", \"d5cba5706d657ew4\")";
+							String c10 = commentInsert +"(\"klkg6543@wayne.edu\",\"AFK\", \"9ad71db2e2zcd5f7\")";
+							  statement.executeUpdate(c1);
+						      statement.executeUpdate(c2);
+						      statement.executeUpdate(c3);
+						      statement.executeUpdate(c4);
+						      statement.executeUpdate(c5);
+						      statement.executeUpdate(c6);
+						      statement.executeUpdate(c7);
+						      statement.executeUpdate(c8);
+						      statement.executeUpdate(c9);
+						      statement.executeUpdate(c10);
+					      
+
+	
+	
+	
 	}
 	catch (Exception e) {
         System.out.println(e);

@@ -21,10 +21,9 @@
 <form action="insert" method="get">
 
 	<h1>Create an Account</h1>
-	Email: <input type="text" placeholder="Enter Email Address" name="email"> <h3 style = "color: red"> ${Duplicate}</h3><br>
-
-	Password: <input type="text" placeholder="Enter Password" name="pw"><br> 
-	Re-Confirm Password: <input type="text" placeholder="Confirm Password" name="pwR"><br>
+	Email: <input type="text" placeholder="Enter Email Address" name="email">
+	Password: <input type="password" placeholder="Enter Password" name="pw"><br> 
+	Re-Confirm Password: <input type="password" placeholder="Confirm Password" name="pwR"><br>
 	First Name: <input type="text" placeholder="Enter First Name" name="fN"><br>
 	Last Name: <input type="text" placeholder="Enter Last Name" name="lN"><br>
 	Age: <input type="text" placeholder="Enter Age" name="age"><br>
