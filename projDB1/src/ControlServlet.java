@@ -52,11 +52,8 @@ public class ControlServlet extends HttpServlet {
         	
         	
             switch (action) {
-            case "/insertRoot":
-            	System.out.println("The action is: insert Root");
-            	//initalize a root user everytime sign in
-            	User root = new User("root", "pass1234", 1000, 1000000000);
-            	UserDAO.insert(root);
+            case "/userLogin": //check if username exists & if password matches
+            	searchUser(request, response);
             case "/insert": //When a new user signs up
                 System.out.println("The action is: insert");
             	   insertUser(request, response);
@@ -114,6 +111,21 @@ public class ControlServlet extends HttpServlet {
      
         System.out.println("insertUser finished: 11111111111111111111111111");   
     }
+    private void searchUser(HttpServletRequest request, HttpServletResponse response)
+    		throws SQLException, IOException, ServletException {
+    	String id = request.getParameter("email");
+    	String pw = request.getParameter("password");
+    	
+    	if(UserDAO.checkForUser(id)) {
+            RequestDispatcher dispatcher = request.getRequestDispatcher("result.jsp");       
+            dispatcher.forward(request, response);
+        }
+        else {
+        	request.setAttribute("InvalidUN", "Username is invalid");
+        	request.getRequestDispatcher("result.jsp").forward(request, response);
+        }
+    }
+    
     
     private void deleteTables(HttpServletRequest request, HttpServletResponse response)throws SQLException, IOException, ServletException {
     	
