@@ -285,7 +285,7 @@ public void insertTuples() throws SQLException, IOException, ServletException {
 					String p4 = postInsert +"(\"jen_t@gmail.com\",\"t\", \"30\", \"I hope this post get 31 likes\",\"9782f31965d483a4\")";
 					String p5 = postInsert +"(\"hy88@yahoo.com\",\"a\", \"1\", \"My most liked post! :D\",\"c967a86fcf151528\")";
 					String p6 = postInsert +"(\"emp555@wayne.edu\",\"a\", \"43\", \"Important Announcement\",\"b4a0b4cf6cbc1a40\")";
-					String p7 = postInsert +"(\"gary88@gmail.com\",\"h!\", \"21\", \"Can I get some help with my database?\",\"7f3a73773836c2c2\")";
+					String p7 = postInsert +"(\"gary88@gmail.com\",\"h\", \"21\", \"Can I get some help with my database?\",\"7f3a73773836c2c2\")";
 					String p8 = postInsert +"(\"johndata@outlook.com\",\"v\", \"42\", \"John Data reporting\",\"ed34a8084b039c9d\")";
 					String p9 = postInsert +"(\"sql123@gmail.com\",\"i\", \"32\", \"Sup\",\"d5cba5706d657ew4\")";
 					String p10 = postInsert +"(\"klkg6543@wayne.edu\",\"i\", \"65\", \"See ya later!!!\",\"9ad71db2e2zcd5f7\")";
